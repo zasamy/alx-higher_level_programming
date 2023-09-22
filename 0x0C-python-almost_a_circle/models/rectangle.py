@@ -70,6 +70,58 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
     def area(self):
         """returns the area value of rectangle"""
         return (self.__height * self.__width)
+
+    def display(self):
+        """prints in stdout rectangle with character #"""
+        print('\n' * self.y, end="")
+        for a in range(self.height):
+            print(' ' * self.x, end="")
+            print('#' * self.width)
+
+    def __str__(self):
+        """return string about rectangle"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.__x,
+                                                       self.__y,
+                                                       self.__width,
+                                                       self.__height)
+
+    def update(self, *args, **kwargs):
+        """update attribute"""
+        if len(args):
+            for i, z in enumerate(args):
+                if i == 0:
+                    self.id = z
+                elif i == 1:
+                    self.width = z
+                elif i == 2:
+                    self.height = z
+                elif i == 3:
+                    self.x = z
+                elif i == 4:
+                    self.y = z
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.width = kwargs["width"]
+            if "height" in kwargs:
+                self.height = kwargs["height"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
+
+    def to_dictionary(self):
+        """dictionary representation of rectangle"""
+        dt = {}
+        dt["id"] = self.id
+        dt["width"] = self.width
+        dt["height"] = self.height
+        dt["x"] = self.x
+        dt["y"] = self.y
+        return (dt)

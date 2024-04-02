@@ -77,8 +77,7 @@ class SinglyLinkedList:
             __head : head of the SinglyLinkedList .
         """
         self.__head = None
-
-    def __str__(self): 
+        def __str__(self):
         temp_var = self.__head
         print_node = []
         while temp_var:

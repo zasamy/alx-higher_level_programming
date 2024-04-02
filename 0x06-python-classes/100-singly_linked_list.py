@@ -77,7 +77,12 @@ class SinglyLinkedList:
             __head : head of the SinglyLinkedList .
         """
         self.__head = None
-        def __str__(self):
+
+    def __str__(self):
+        """Represents the class objects as a string.
+
+        Returns: The class object represented as a string.
+        """
         temp_var = self.__head
         print_node = []
         while temp_var:
@@ -89,7 +94,11 @@ class SinglyLinkedList:
         return ("\n".join(print_node))
 
     def sorted_insert(self, value):
+        """Inserts a new node at a given position.
 
+        Args:
+            value: value.
+        """
         if self.__head is None:
             new_node = Node(value)
             new_node.next_node = self.__head

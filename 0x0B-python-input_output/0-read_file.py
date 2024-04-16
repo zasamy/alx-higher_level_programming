@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-""" Module that contains a function that reads from a file """
+"""read file"""
+
 
 def read_file(filename=""):
-    """read filename"""
-    with open(filename, encoding='utf-8') as f:
-        print (f.read(), end="")
+    """reads a text file"""
+    with open(filename, 'r', encoding="UTF8") as f:
+        txtfile = f.read()
+        print(txtfile, end="")
